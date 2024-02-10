@@ -68,6 +68,8 @@ class circle:
                 
                 i[0].velocity = vector(v1x,v1y)
                 i[1].velocity = vector(v2x,v2y)
+                i[0].color = (random.randint(0,250),random.randint(0,250),random.randint(0,250))
+                i[1].color = (random.randint(0,250),random.randint(0,250),random.randint(0,250))
 
     def __repr__(self):
         return str(self.pos.x)
