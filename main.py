@@ -4,8 +4,8 @@ pygame.init()
 
 window = pygame.display.set_mode((1000,1000))
 a = []
-for i in range(100):
-    a.append(circle(vector(random.randint(0,1000),random.randint(0,1000)),random.randint(1,5)))
+for i in range(150):
+    a.append(circle(vector(random.randint(0,1000),random.randint(0,1000)),random.randint(1,5),(random.randint(150,250),random.randint(150,250),random.randint(150,250))))
 
 
 while True:

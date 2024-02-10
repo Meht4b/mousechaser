@@ -6,9 +6,10 @@ class circle:
     circles = []
     friction = 0 
 
-    def __init__(self,pos,mass):        
+    def __init__(self,pos,mass,color):        
         self.mass =mass
         self.pos = pos
+        self.color = color
         self.velocity = vector()
         self.accel = vector()
         self.radius = mass*2
@@ -80,7 +81,7 @@ class circle:
     def update(self,win):
         f = vector(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1])-self.pos
         self.force(f*0.01)
-        self.force(self.velocity*-0.05)
+        self.force(self.velocity*-0.1)
         self.pos += self.velocity
         if self.pos.x < 0 or self.pos.x>1000:
             self.velocity.x = self.velocity.x*-1
@@ -93,7 +94,7 @@ class circle:
         self.display(win)
 
     def display(self,win):
-        pygame.draw.circle(win,(0,0,0),self.pos.tup(),self.radius)
+        pygame.draw.circle(win,self.color,self.pos.tup(),self.radius)
 
 
 #for i in range(10000):
