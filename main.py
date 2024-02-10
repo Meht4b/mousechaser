@@ -5,7 +5,7 @@ pygame.init()
 window = pygame.display.set_mode((1000,1000))
 a = []
 for i in range(100):
-    a.append(circle(vector(random.randint(0,1000),random.randint(0,1000)),random.randint(1,10)))
+    a.append(circle(vector(random.randint(0,1000),random.randint(0,1000)),random.randint(1,5)))
 
 
 while True:
