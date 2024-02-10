@@ -1,0 +1,1 @@
+    circle.classupdate(window)
