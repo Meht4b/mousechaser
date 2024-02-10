@@ -68,8 +68,6 @@ class circle:
                 
                 i[0].velocity = vector(v1x,v1y)
                 i[1].velocity = vector(v2x,v2y)
-                i[0].color = (random.randint(0,250),random.randint(0,250),random.randint(0,250))
-                i[1].color = (random.randint(0,250),random.randint(0,250),random.randint(0,250))
 
     def __repr__(self):
         return str(self.pos.x)
@@ -82,15 +80,15 @@ class circle:
 
     def update(self,win):
         f = vector(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1])-self.pos
-        self.force(f*0.01)
-        self.force(self.velocity*-0.1)
+        self.force(f*0.0001)
+        self.force(self.velocity*-0.01)
         self.pos += self.velocity
         if self.pos.x < 0 or self.pos.x>1000:
             self.velocity.x = self.velocity.x*-1
         if self.pos.y < 0 or self.pos.y>1000:
             self.velocity.y = self.velocity.y*-1
         
-        print(type(self.velocity),type(self.accel))
+
         self.velocity += self.accel
         self.accel = vector()
         self.display(win)
