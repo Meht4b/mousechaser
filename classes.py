@@ -80,9 +80,20 @@ class circle:
 
     def update(self,win):
         f = vector(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1])-self.pos
-        self.force(f*0.001)
-        self.force(self.velocity*-0.001)
+
+        #to change the magnitude of force 
+        forceMagnitude = 0.001
+        self.force(f*forceMagnitude)
+
+        #to change friction mag
+        frictionMagnitude = 0.01
+        self.force(self.velocity*-frictionMagnitude)
+
+
         self.pos += self.velocity
+
+        #uncomment if you want border
+
         #if self.pos.x < 0 or self.pos.x>1000:
             #self.velocity.x = self.velocity.x*-1
         #if self.pos.y < 0 or self.pos.y>1000:

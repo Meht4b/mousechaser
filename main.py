@@ -5,21 +5,11 @@ pygame.init()
 clock = pygame.time.Clock()
 window = pygame.display.set_mode((1000,1000))
 a = []
-bright_colors = [
-    (255, 0, 0),      # Red
-    (255, 165, 0),    # Orange
-    (255, 255, 0),    # Yellow
-    (0, 255, 0),      # Limes
-    (0, 255, 255),    # Cyan
-    (0, 0, 255),      # Blue
-    (128, 0, 128),    # Purple
-    (255, 192, 203),  # Pink
-    (255, 0, 255),    # Magenta
-    (255, 255, 255),  # White
-    (0, 0, 0)  
-]
-for i in range(500):
-    a.append(circle(vector(random.randint(0,1000),random.randint(0,1000)),random.randint(1,5),(0,0,0)))
+
+#no. of particles
+n = 700
+for i in range(n):
+    a.append(circle(vector(random.randint(0,1000),random.randint(0,1000)),random.randint(1,500)*0.01,(0,0,0)))
 
 
 while True:

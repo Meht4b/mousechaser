@@ -22,7 +22,7 @@ class vector:
             return vector(self.x*other,self.y*other)
     
     def __truediv__(self,other):
-        if isinstance(other,int):
+        if isinstance(other,float) or isinstance(other,int):
             return vector(self.x*1/other,self.y*1/other)
     
     def __repr__(self):
