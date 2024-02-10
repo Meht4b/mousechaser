@@ -80,7 +80,7 @@ class circle:
 
     def update(self,win):
         f = vector(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1])-self.pos
-        self.force(f*0.0001)
+        self.force(f*0.01)
         self.force(self.velocity*-0.01)
         self.pos += self.velocity
         if self.pos.x < 0 or self.pos.x>1000:

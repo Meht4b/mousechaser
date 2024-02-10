@@ -8,7 +8,7 @@ bright_colors = [
     (255, 0, 0),      # Red
     (255, 165, 0),    # Orange
     (255, 255, 0),    # Yellow
-    (0, 255, 0),      # Lime
+    (0, 255, 0),      # Limes
     (0, 255, 255),    # Cyan
     (0, 0, 255),      # Blue
     (128, 0, 128),    # Purple
@@ -18,7 +18,7 @@ bright_colors = [
     (0, 0, 0)  
 ]
 for i in range(750):
-    a.append(circle(vector(random.randint(0,1000),random.randint(0,1000)),random.randint(1,1),(0,0,0)))
+    a.append(circle(vector(random.randint(0,1000),random.randint(0,1000)),random.randint(3,3),(0,0,0)))
 
 
 while True:
