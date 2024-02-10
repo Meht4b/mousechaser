@@ -86,7 +86,7 @@ class circle:
         self.force(f*forceMagnitude)
 
         #to change friction mag
-        frictionMagnitude = 0.01
+        frictionMagnitude = 0.01/2
         self.force(self.velocity*-frictionMagnitude)
 
 

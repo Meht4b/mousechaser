@@ -9,7 +9,7 @@ a = []
 #no. of particles
 n = 700
 for i in range(n):
-    a.append(circle(vector(random.randint(0,1000),random.randint(0,1000)),random.randint(1,500)*0.01,(0,0,0)))
+    a.append(circle(vector(random.randint(0,1000),random.randint(0,1000)),random.randint(1,750)*0.01,(0,0,0)))
 
 
 while True:
