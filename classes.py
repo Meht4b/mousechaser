@@ -11,7 +11,7 @@ class circle:
         self.pos = pos
         self.velocity = vector()
         self.accel = vector()
-        self.radius = mass*2
+        self.radius = mass
         circle.circles.append(self)
 
     def force(self,force):
@@ -78,9 +78,9 @@ class circle:
             i.update(win)
 
     def update(self,win):
-        f = (vector(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1])-self.pos).unitVector()
-        self.force(f*1)
-        self.force(self.velocity*-0.1)
+        f = vector(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1])-self.pos
+        self.force(f*0.01)
+        self.force(self.velocity*-0.05)
         self.pos += self.velocity
         print(type(self.velocity),type(self.accel))
         self.velocity += self.accel
