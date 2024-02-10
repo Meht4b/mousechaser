@@ -11,7 +11,7 @@ class circle:
         self.pos = pos
         self.velocity = vector()
         self.accel = vector()
-        self.radius = mass
+        self.radius = mass*2
         circle.circles.append(self)
 
     def force(self,force):
@@ -82,6 +82,11 @@ class circle:
         self.force(f*0.01)
         self.force(self.velocity*-0.05)
         self.pos += self.velocity
+        if self.pos.x < 0 or self.pos.x>1000:
+            self.velocity.x = self.velocity.x*-1
+        if self.pos.y < 0 or self.pos.y>1000:
+            self.velocity.y = self.velocity.y*-1
+        
         print(type(self.velocity),type(self.accel))
         self.velocity += self.accel
         self.accel = vector()
