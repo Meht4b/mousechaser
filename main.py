@@ -2,6 +2,7 @@ from classes import *
 import pygame
 pygame.init()
 
+clock = pygame.time.Clock()
 window = pygame.display.set_mode((1000,1000))
 a = []
 bright_colors = [
@@ -17,8 +18,8 @@ bright_colors = [
     (255, 255, 255),  # White
     (0, 0, 0)  
 ]
-for i in range(750):
-    a.append(circle(vector(random.randint(0,1000),random.randint(0,1000)),random.randint(3,3),(0,0,0)))
+for i in range(500):
+    a.append(circle(vector(random.randint(0,1000),random.randint(0,1000)),random.randint(1,5),(0,0,0)))
 
 
 while True:
@@ -27,7 +28,7 @@ while True:
             pygame.quit()
             break
         
-
+    clock.tick(50)
     window.fill((255,255,255))
     circle.classupdate(window)
     pygame.display.update()
