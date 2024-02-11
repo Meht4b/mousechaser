@@ -3,7 +3,7 @@ import pygame
 pygame.init()
 
 clock = pygame.time.Clock()
-window = pygame.display.set_mode((1000,1000))
+window = pygame.display.set_mode((1920,1080))
 a = []
 
 #no. of particles
