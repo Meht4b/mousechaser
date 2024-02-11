@@ -14,6 +14,7 @@ class circle:
         self.accel = vector()
         self.radius = mass*2
         circle.circles.append(self)
+        self.trail = [self.pos,self.pos,self.pos]
 
     def force(self,force):
         self.accel += force/self.mass
@@ -73,12 +74,12 @@ class circle:
         return str(self.pos.x)
     
     @classmethod
-    def classupdate(cls,win):
+    def classupdate(cls,win,reset):
         cls.collision()
         for i in cls.circles:
-            i.update(win)
+            i.update(win,reset)
 
-    def update(self,win):
+    def update(self,win,reset):
         f = vector(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1])-self.pos
 
         #to change the magnitude of force 
@@ -102,10 +103,16 @@ class circle:
 
         self.velocity += self.accel
         self.accel = vector()
+        if reset:
+            print('yes')
+            self.velocity = vector()
         self.display(win)
+        self.trail.append(self.pos)
+        self.trail.pop(0)
 
     def display(self,win):
         pygame.draw.circle(win,self.color,self.pos.tup(),self.radius)
+        pygame.draw.line(win,self.color,self.pos.tup(),self.trail[0].tup())
 
 
 #for i in range(10000):
