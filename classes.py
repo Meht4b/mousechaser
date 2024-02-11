@@ -73,12 +73,12 @@ class circle:
         return str(self.pos.x)
     
     @classmethod
-    def classupdate(cls,win):
+    def classupdate(cls,win,reset):
         cls.collision()
         for i in cls.circles:
-            i.update(win)
+            i.update(win,reset)
 
-    def update(self,win):
+    def update(self,win,reset):
         f = vector(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1])-self.pos
 
         #to change the magnitude of force 
@@ -98,6 +98,8 @@ class circle:
             #self.velocity.x = self.velocity.x*-1
         #if self.pos.y < 0 or self.pos.y>1000:
             #self.velocity.y = self.velocity.y*-1
+        if reset:
+            self.velocity = vector()
         
 
         self.velocity += self.accel
