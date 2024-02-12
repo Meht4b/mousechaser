@@ -1,2 +1,2 @@
 
-                reset = True
+n = 10

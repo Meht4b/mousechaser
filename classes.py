@@ -16,6 +16,7 @@ class circle:
         self.ForceMagnitude = forceMagnitude
         self.FrictionMagnitude = FrictionMagnitude
         self.Range = Range
+        self.trail = [self.pos,self.pos,self.pos]
         circle.circles.append(self)
 
     def force(self,force):
@@ -109,9 +110,12 @@ class circle:
         self.velocity += self.accel
         self.accel = vector()
         self.display(win)
+        self.trail.append(self.pos)
+        self.trail.pop(0)
 
     def display(self,win):
         pygame.draw.circle(win,self.color,self.pos.tup(),self.radius)
+        pygame.draw.line(win,self.color,self.pos.tup(),self.trail[0].tup())
 
 
 #for i in range(10000):
