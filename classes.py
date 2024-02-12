@@ -89,8 +89,8 @@ class circle:
         #to change the magnitude of force 
         if not self.Range:
             self.force(f*self.ForceMagnitude)
-
             self.force(self.velocity*-self.FrictionMagnitude)
+            
         else:
             if not free:
 
@@ -104,10 +104,10 @@ class circle:
 
         #uncomment if you want border
 
-        #if self.pos.x < 10 or self.pos.x>1900:
-            #self.velocity.x = self.velocity.x*-1
-        #if self.pos.y < 10 or self.pos.y>1060:
-            #self.velocity.y = self.velocity.y*-1
+        if self.pos.x < 10 or self.pos.x>1900:
+            self.velocity.x = self.velocity.x*-1
+        if self.pos.y < 10 or self.pos.y>1060:
+            self.velocity.y = self.velocity.y*-1
        
        
         if reset:
