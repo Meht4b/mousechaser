@@ -7,7 +7,8 @@ window = pygame.display.set_mode((1920,1080))
 a = []
 
 #no. of particles
-n = 700
+n = 10
+a.append(circle(vector(500,500),1,(200,200,150),0.01, 0.1,None))
 for i in range(n):
     a.append(circle(vector(random.randint(0,1000),random.randint(0,1000)),random.randint(100,750)*0.01,(255,255,255)))
 

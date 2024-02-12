@@ -6,13 +6,16 @@ class circle:
     circles = []
     friction = 0 
 
-    def __init__(self,pos,mass,color):        
+    def __init__(self,pos,mass,color,forceMagnitude,FrictionMagnitude,Range):        
         self.mass =mass
         self.pos = pos
         self.color = color
         self.velocity = vector()
         self.accel = vector()
         self.radius = mass*2
+        self.ForceMagnitude = forceMagnitude
+        self.FrictionMagnitude = FrictionMagnitude
+        self.Range = Range
         circle.circles.append(self)
 
     def force(self,force):
@@ -82,12 +85,13 @@ class circle:
         f = vector(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1])-self.pos
 
         #to change the magnitude of force 
-        forceMagnitude = 0.001
-        self.force(f*forceMagnitude)
+        if self.Range:
+            if f.magnitude()<self.Range:            
+                self.force(f*self.ForceMagnitude)
+        else:   
+            self.force(f*self.ForceMagnitude)
 
-        #to change friction mag
-        frictionMagnitude = 0.01/2
-        self.force(self.velocity*-frictionMagnitude)
+        self.force(self.velocity*-self.FrictionMagnitude)
 
 
         self.pos += self.velocity
