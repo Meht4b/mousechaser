@@ -10,7 +10,7 @@ a = []
 n = 10
 a.append(circle(vector(500,500),1,(200,200,150),0.01, 0.1,None))
 for i in range(n):
-    a.append(circle(vector(random.randint(0,1000),random.randint(0,1000)),random.randint(100,750)*0.01,(255,255,255)))
+    a.append(circle(vector(random.randint(0,1000),random.randint(0,1000)),random.randint(100,750)*0.001,(255,255,255),0.01,0.1,400))
 
 reset = False
 while True:
@@ -29,4 +29,5 @@ while True:
     window.fill((0,0,0))
     circle.classupdate(window,reset)
     reset = False
+    pygame.draw.circle(window,(50,50,0),pygame.mouse.get_pos(),400,width=1)
     pygame.display.update()
