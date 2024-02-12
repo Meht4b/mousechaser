@@ -28,6 +28,8 @@ class vector:
     def __repr__(self):
         return f'{self.x},{self.y}'
 
+
+
     def magnitude(self):
         return math.sqrt(self.x ** 2 + self.y ** 2)
         

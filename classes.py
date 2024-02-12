@@ -16,7 +16,7 @@ class circle:
         self.ForceMagnitude = forceMagnitude
         self.FrictionMagnitude = FrictionMagnitude
         self.Range = Range
-        self.trail = [self.pos,self.pos,self.pos]
+        self.trail = [self.pos,self.pos]
         circle.circles.append(self)
 
     def force(self,force):
@@ -77,32 +77,39 @@ class circle:
         return str(self.pos.x)
     
     @classmethod
-    def classupdate(cls,win,reset):
-        cls.collision()
+    def classupdate(cls,win,reset,free):
+        #cls.collision()
+
         for i in cls.circles:
-            i.update(win,reset)
+            i.update(win,reset,free)
 
-    def update(self,win,reset):
+    def update(self,win,reset,free):
         f = vector(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1])-self.pos
-
+        
         #to change the magnitude of force 
-        if self.Range:
-            if f.magnitude()<self.Range:            
-                self.force(f*self.ForceMagnitude)
-        else:   
+        if not self.Range:
             self.force(f*self.ForceMagnitude)
 
-        self.force(self.velocity*-self.FrictionMagnitude)
+            self.force(self.velocity*-self.FrictionMagnitude)
+        else:
+            if not free:
+
+                if f.magnitude()<self.Range:            
+                    self.force(f*self.ForceMagnitude)
+                    self.force(self.velocity*-self.FrictionMagnitude)
+
 
 
         self.pos += self.velocity
 
         #uncomment if you want border
 
-        #if self.pos.x < 0 or self.pos.x>1000:
+        #if self.pos.x < 10 or self.pos.x>1900:
             #self.velocity.x = self.velocity.x*-1
-        #if self.pos.y < 0 or self.pos.y>1000:
+        #if self.pos.y < 10 or self.pos.y>1060:
             #self.velocity.y = self.velocity.y*-1
+       
+       
         if reset:
             self.velocity = vector()
         
