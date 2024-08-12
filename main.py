@@ -3,11 +3,11 @@ import pygame
 pygame.init()
 
 clock = pygame.time.Clock()
-window = pygame.display.set_mode((1000,1000))
+window = pygame.display.set_mode((1500,800))
 a = []
 
 #no. of particles
-n = 700
+n =950
 for i in range(n):
     a.append(circle(vector(random.randint(0,1000),random.randint(0,1000)),random.randint(1,750)*0.01,(255,255,255)))
 
