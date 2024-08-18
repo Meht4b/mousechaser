@@ -75,7 +75,6 @@ class circle:
     
     @classmethod
     def classupdate(cls,win,reset):
-        cls.collision()
         for i in cls.circles:
             i.update(win,reset)
 
@@ -87,7 +86,7 @@ class circle:
         self.force(f*forceMagnitude)
 
         #to change friction mag
-        frictionMagnitude = 0.01/2
+        frictionMagnitude = 0.01/4
         self.force(self.velocity*-frictionMagnitude)
 
 
@@ -104,7 +103,6 @@ class circle:
         self.velocity += self.accel
         self.accel = vector()
         if reset:
-            print('yes')
             self.velocity = vector()
         self.display(win)
         self.trail.append(self.pos)
