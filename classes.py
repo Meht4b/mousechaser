@@ -111,7 +111,6 @@ class circle:
         self.trail.pop(0)
 
     def display(self,win):
-        pygame.draw.circle(win,self.color,self.pos.tup(),self.radius)
         pygame.draw.line(win,self.color,self.pos.tup(),self.trail[0].tup())
 
 
